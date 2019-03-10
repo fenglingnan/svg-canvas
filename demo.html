@@ -28,7 +28,147 @@
         <!-- <polygon points='0,350 60,250 80,300' fill='red'></polygon> -->
         <!-- <polygon points='150,0 180,0 195,25.9807 180,51.9615 150,51.9615 135,25.9807' fill='purple' stroke='red' stroke-width='2'></polygon> -->
         <!-- <polygon points="100,10 40,180 190,60 10,60 160,180"  style="fill:lime;stroke:purple;stroke-width:5;fill-rule:nonzero;" /> -->
-        <polygon points="100,10 40,180 190,60 10,60 160,180" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" />
+        <!-- <polygon points="100,10 40,180 190,60 10,60 160,180" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /> -->
+        <!-- <path d='M150 0 L75 200 L225 200 z'></path> -->
+        <!-- 相对命令使用的是小写字母，它们的参数不是指定一个明确的坐标，而是表示相对于它前面的点需要移动多少距离。相对坐标形式： -->
+        <!-- <path id="lineAB" d="M 100 350 l 150 -300" stroke="red"
+        stroke-width="3" fill="none" />
+        <path id="lineBC" d="M 250 50 l 150 300" stroke="red"
+        stroke-width="3" fill="none" />
+        <path d="M 175 200 l 150 0" stroke="green" stroke-width="3"
+        fill="none" />
+        <path d="M 100 350 q 150 -300 300 0" stroke="blue"
+        stroke-width="5" fill="none" />
+        <g stroke="black" stroke-width="3" fill="black">
+            <circle id="pointA" cx="100" cy="350" r="3" />
+            <circle id="pointB" cx="250" cy="50" r="3" />
+            <circle id="pointC" cx="400" cy="350" r="3" />
+        </g>
+        <g font-size="30" font="sans-serif" fill="black" stroke="none"
+        text-anchor="middle">
+            <text x="100" y="350" dx="-30">A</text>
+            <text x="250" y="50" dy="-10">B</text>
+            <text x="400" y="350" dx="30">C</text>
+        </g> -->
+        <!-- <text x="0" y="15" fill="red">I love SVG</text> -->
+        <!-- 可混用css3 -->
+        <!-- <text x="0" y="15" fill="red" transform="rotate(30 20,40)">I love SVG</text> -->
+        <!-- <defs>
+            <path id="path1" d="M75,20 a1,1 0 0,0 100,0" />
+        </defs>
+        <text x="10" y="100" style="fill:red;">
+            <textPath xlink:href="#path1">I love SVG I love SVG</textPath>
+        </text> -->
+        <!-- <text x="10" y="20" style="fill:red;">Several lines:
+            <tspan x="10" y="45">First line</tspan>
+            <tspan x="10" y="70">Second line</tspan>
+        </text> -->
+        <!-- <a xlink:href="http://www.baidu.com" target="_blank">
+            <text x="0" y="15" fill="red">I love SVG</text>
+        </a> -->
+        <!-- <g fill="none">
+            <path stroke="red" d="M5 20 l215 0" />
+            <path stroke="blue" d="M5 40 l215 0" />
+            <path stroke="black" d="M5 60 l215 0" />
+        </g> -->
+        <!-- <g fill="none" stroke="black" stroke-width="6">
+            <path stroke-linecap="butt" d="M5 20 l215 0" />
+            <path stroke-linecap="round" d="M5 40 l215 0" />
+            <path stroke-linecap="square" d="M5 60 l215 0" />
+        </g> -->
+        <!-- <g fill="none" stroke="black" stroke-width="4">
+            <path stroke-dasharray="5,5" d="M5 20 l215 0" />
+            <path stroke-dasharray="10,10" d="M5 40 l215 0" />
+            <path stroke-dasharray="20,10,5,5,5,10" d="M5 60 l215 0" />
+          </g> -->
+        <!-- <defs>
+        <filter id="f1" x="0" y="0">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+        </filter>
+        </defs>
+        <rect width="90" height="90" stroke="green" stroke-width="3"
+        fill="yellow" filter="url(#f1)" /> -->
+        <!-- <defs>
+            <filter id="f1" x="0" y="0" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+            <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
+            </filter>
+        </defs>
+        <rect width="90" height="90" stroke="green" stroke-width="3"
+        fill="yellow" filter="url(#f1)" /> -->
+        <!-- <defs>
+            <filter id="f1" x="0" y="0" width="200%" height="200%">
+                <feOffset result="offOut" in="SourceGraphic" dx="20" dy="20" />
+                <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+                <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <rect width="90" height="90" stroke="green" stroke-width="3"
+        fill="yellow" filter="url(#f1)" /> -->
+        <!-- <defs>
+            <filter id="f1" x="0" y="0" width="200%" height="200%">
+            <feOffset result="offOut" in="SourceAlpha" dx="20" dy="20" />
+            <feGaussianBlur result="blurOut" in="offOut" stdDeviation="10" />
+            <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+            </filter>
+        </defs>
+        <rect width="90" height="90" stroke="green" stroke-width="3"
+        fill="yellow" filter="url(#f1)" /> -->
+        <!-- <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" /> -->
+        <!-- <defs>
+            <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(255,255,0);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(255,0,0);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+        <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" /> -->
+        <!-- <defs>
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255);
+            stop-opacity:0" />
+            <stop offset="100%" style="stop-color:rgb(0,0,255);stop-opacity:1" />
+            </radialGradient>
+        </defs>
+        <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" /> -->
+        <defs> 
+            <linearGradient id="MyGradient" gradientUnits="userSpaceOnUse" x1="100" y1="0" x2="300" y2="0"> 
+            <stop offset="0" style="stop-color:#000000" /> 
+            <stop offset=".33" style="stop-color:#ffffff" />       
+            <stop offset=".67" style="stop-color:#ffff00" /> 
+            <stop offset="1" style="stop-color:#808080" /> 
+            </linearGradient> 
+            <filter id="normal"> 
+            <feBlend mode="normal" in2="BackgroundImage" in="SourceGraphic" /> 
+            </filter> 
+            <filter id="multiply"> 
+            <feBlend mode="multiply" in2="BackgroundImage" in="SourceGraphic" /> 
+            </filter> 
+            <filter id="screen"> 
+            <feBlend mode="screen" in2="BackgroundImage" in="SourceGraphic" /> 
+            </filter> 
+            <filter id="darken"> 
+            <feBlend mode="darken" in2="BackgroundImage" in="SourceGraphic" /> 
+            </filter> 
+            <filter id="lighten"> 
+            <feBlend mode="lighten" in2="BackgroundImage" in="SourceGraphic" /> 
+            </filter> 
+        </defs> 
+        <g style="enable-background:new"> 
+            <rect x="40" y="20" width="300" height="450" style="fill:url(#MyGradient)" /> 
+            <g style="font-size:75;fill:#888888;fill-opacity:.6"> 
+            <text x="50" y="90" filter="url(#normal)">Normal</text> 
+            <text x="50" y="180" filter="url(#multiply)">Multiply</text> 
+            <text x="50" y="270" filter="url(#screen)">Screen</text> 
+            <text x="50" y="360" filter="url(#darken)">Darken</text> 
+            <text x="50" y="450" filter="url(#lighten)">Lighten</text> 
+            </g> 
+        </g>
     </svg>
 </body>
 </html>
