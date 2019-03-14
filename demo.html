@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Page Title</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- <link rel="stylesheet" href="./demo.css"> -->
     <style>*{margin:0;padding:0;font-size: 16px;}body,html{height:100%;}</style>
 </head>
 <body>
-    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width='600' height='600'>
+    <!-- <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width='600' height='600'> -->
         <!-- <circle cx="100" cy="50" r="40" stroke="skyblue"
         stroke-width="2" fill="green" />
         <rect width='300' height='100' fill="rgb(0,0,255)" stroke-width='1' stroke='rgb(0,0,0)'/> -->
@@ -136,7 +137,7 @@
             </radialGradient>
         </defs>
         <ellipse cx="200" cy="70" rx="85" ry="55" fill="url(#grad1)" /> -->
-        <defs> 
+        <!-- <defs> 
             <linearGradient id="MyGradient" gradientUnits="userSpaceOnUse" x1="100" y1="0" x2="300" y2="0"> 
             <stop offset="0" style="stop-color:#000000" /> 
             <stop offset=".33" style="stop-color:#ffffff" />       
@@ -169,6 +170,9 @@
             <text x="50" y="450" filter="url(#lighten)">Lighten</text> 
             </g> 
         </g>
-    </svg>
+    </svg> -->
+    <img src="./demo.svg" alt="" />
+    <!-- img标签引用的svg内部不支持引用外部css -->
+    <!-- <iframe src="./demo.svg" frameborder="0"></iframe> -->
 </body>
 </html>
