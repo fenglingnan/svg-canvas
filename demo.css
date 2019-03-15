@@ -25,3 +25,7 @@ display: block;
 color: #000000;
 margin-left: 20pt;
 }
+#MyRect {
+    stroke: black;
+    fill: red;
+  }
