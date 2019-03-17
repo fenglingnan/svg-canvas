@@ -53,7 +53,7 @@
 
   <polyline points="40 220 80 180 120 220" stroke="black" stroke-width="20"
       stroke-linecap="square" fill="none" stroke-linejoin="bevel"/> -->
-  <path d="M 10 75 Q 50 10 100 75 T 190 75" stroke="black"
+  <!-- <path d="M 10 75 Q 50 10 100 75 T 190 75" stroke="black"
     stroke-linecap="round" stroke-dasharray="5,10,5" fill="none"/>
   <path d="M 10 75 L 190 75" stroke="red"
     stroke-linecap="round" stroke-width="1" stroke-dasharray="5,5" fill="none"/>
@@ -65,5 +65,116 @@
        }
     ]]></style>
   </defs>
-  <rect x="10" height="180" y="10" width="180" id="MyRect"/>
+  <rect x="10" height="180" y="10" width="180" id="MyRect"/> -->
+  <!-- <defs>
+      <linearGradient id="Gradient1">
+        <stop class="stop1" offset="0%"/>
+        <stop class="stop2" offset="50%"/>
+        <stop class="stop3" offset="100%"/>
+      </linearGradient> -->
+      <!-- <linearGradient id="Gradient2" x1="0" x2="1" y1="0" y2="1"> -->
+        <!-- 从0，0开始变化 -->
+        <!-- <stop offset="0%" stop-color="red"/>
+        <stop offset="50%" stop-color="black" stop-opacity="0"/>
+        <stop offset="100%" stop-color="blue"/>
+      </linearGradient> -->
+       <!-- <linearGradient id="Gradient2" x1="0" x2="1" y1="0" y2="1"
+    xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#Gradient1"/> -->
+    <!-- 用xlink可引用，避免多次创建 -->
+      <!-- <style type="text/css"><![CDATA[
+        #rect1 { fill: url(#Gradient1); }
+        .stop1 { stop-color: purple; }
+        .stop2 { stop-color: black; stop-opacity: 0; }
+        .stop3 { stop-color: blue; }
+      ]]></style>
+  </defs>
+ 
+  <rect id="rect1" x="10" y="10" rx="15" ry="15" width="100" height="100"/>
+  <rect x="10" y="120" rx="15" ry="15" width="100" height="100" fill="url(#Gradient2)"/> -->
+  <!-- <defs>
+      <radialGradient id="RadialGradient1">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="50%" stop-color="skyblue"></stop>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+      <radialGradient id="RadialGradient2" cx="0.25" cy="0.25" r="0.25">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+  </defs>
+  <rect x="10" y="10" rx="15" ry="15" width="100" height="100" fill="url(#RadialGradient1)"/> 
+  <rect x="10" y="120" rx="15" ry="15" width="100" height="100" fill="url(#RadialGradient2)"/>  -->
+  <!-- <defs>
+      <radialGradient id="Gradient"
+            cx="0.5" cy="0.5" r="0.5" fx="25%" fy="0.25">//按百分比计算
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="25%" stop-color="pink"></stop>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+  </defs>
+ 
+  <rect x="10" y="10" rx="15" ry="15" width="100" height="100"
+        fill="url(#Gradient)" stroke="black" stroke-width="2"/>
+
+  <circle cx="60" cy="60" r="50" fill="transparent" stroke="white" stroke-width="2"/>
+  <circle cx="35" cy="35" r="2" fill="white" stroke="white"/>
+  <circle cx="60" cy="60" r="2" fill="white" stroke="white"/>
+  <text x="38" y="40" fill="white" font-family="sans-serif" font-size="10pt">(fx,fy)</text>
+  <text x="63" y="63" fill="white" font-family="sans-serif" font-size="10pt">(cx,cy)</text> -->
+  <!-- <defs>
+      <radialGradient id="GradientPad"
+            cx="0.5" cy="0.5" r="0.4" fx="0.75" fy="0.75"
+            spreadMethod="pad">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+      <radialGradient id="GradientRepeat"
+            cx="0.5" cy="0.5" r="0.4" fx="0.75" fy="0.75"
+            spreadMethod="repeat">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+      <radialGradient id="GradientReflect"
+            cx="0.5" cy="0.5" r="0.4" fx="0.75" fy="0.75"
+            spreadMethod="reflect">
+        <stop offset="0%" stop-color="red"/>
+        <stop offset="100%" stop-color="blue"/>
+      </radialGradient>
+      <radialGradient id="Gradient" cx="260" cy="260" r="40" fx="235" fy="235" gradientUnits="userSpaceOnUse">
+      //gradientUnits需要写绝对位置
+        <stop offset="0" stop-color="yellow"></stop>
+        <stop offset="100%" stop-color="skyblue"></stop>
+      </radialGradient>
+  </defs>
+
+  <rect x="10" y="10" rx="15" ry="15" width="100" height="100" fill="url(#GradientPad)"/>
+  <rect x="10" y="120" rx="15" ry="15" width="100" height="100" fill="url(#GradientRepeat)"/>
+  <rect x="120" y="120" rx="15" ry="15" width="100" height="100" fill="url(#GradientReflect)"/>
+  <rect x='200' y='200' rx='15' ry='15' width='100' height="100" fill='url(#Gradient)'></rect>
+
+  <text x="15" y="30" fill="white" font-family="sans-serif" font-size="12pt">Pad</text>
+  <text x="15" y="140" fill="white" font-family="sans-serif" font-size="12pt">Repeat</text>
+  <text x="125" y="140" fill="white" font-family="sans-serif" font-size="12pt">Reflect</text> -->
+  <!-- <defs>
+    <linearGradient id="Gradient1">
+      <stop offset="5%" stop-color="white"/>
+      <stop offset="95%" stop-color="blue"/>
+    </linearGradient>
+    <linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="5%" stop-color="red"/>
+      <stop offset="95%" stop-color="orange"/>
+    </linearGradient>
+
+    <!-- <pattern id="Pattern" x="0" y="0" width=".25" height=".25">
+      <rect x="0" y="0" width="50" height="50" fill="skyblue"/>
+      <rect x="0" y="0" width="25" height="25" fill="url(#Gradient2)"/>
+      <circle cx="25" cy="25" r="20" fill="url(#Gradient1)" fill-opacity="0.5"/>
+    </pattern> -->
+    <!-- <pattern id="Pattern" width=".25" height=".25" patternContentUnits="objectBoundingBox">
+   <rect x="0" y="0" width=".25" height=".25" fill="skyblue"/>
+   <rect x="0" y="0" width=".125" height=".125" fill="url(#Gradient2)"/>
+   <circle cx=".125" cy=".125" r=".1" fill="url(#Gradient1)" fill-opacity="0.5"/>
+ </pattern> --> 
+  <!-- </defs>
+  <rect fill="url(#Pattern)" stroke="black" x="0" y="0" width="200" height="200"/> -->
 </svg>
