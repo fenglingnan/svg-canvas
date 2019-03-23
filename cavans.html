@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>canvas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <div>
+        <!-- <canvas id="run" width="500" height="500">current stock price: $3.15 +0.15</canvas> -->
+        <canvas id="run" width="500" height="500">
+            <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=14112372,1735644923&fm=26&gp=0.jpg" width="150" height="150" alt=""/>
+        </canvas>
+    </div>
+    <script type="text/javascript">
+        window.onload=function(e){
+            console.log(e)
+            globalThis.$ax=444
+            console.log(globalThis);
+            function done(){
+                console.log(this.$ax);
+            }
+            done()
+        }
+    </script>
+</body>
+</html>
