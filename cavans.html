@@ -15,6 +15,7 @@
         <canvas id="run" width="500" height="500">
             <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=14112372,1735644923&fm=26&gp=0.jpg" width="150" height="150" alt=""/>
         </canvas>
+        <img id="local" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=14112372,1735644923&fm=26&gp=0.jpg" alt="">
     </div>
     <script type="text/javascript">
         var canvas=document.querySelector('#run');
@@ -172,7 +173,7 @@
 
         // for (var i=0;i<6;i++){
         //     for (var j=0;j<6;j++){
-        //         ctx.fillStyle = 'rgb(' + Math.floor(255-42.5*i) + ',' + 
+        //         ctx.fillStyle = 'rgb(' + Math.floor(255-42.5*i) + ',' +
         //                         Math.floor(255-42.5*j) + ',0)';
         //         ctx.fillRect(j*25,i*25,25,25);
         //     }
@@ -180,7 +181,7 @@
 
         // for (var i=0;i<6;i++){
         //     for (var j=0;j<6;j++){
-        //         ctx.strokeStyle = 'rgb(0,' + Math.floor(255-42.5*i) + ',' + 
+        //         ctx.strokeStyle = 'rgb(0,' + Math.floor(255-42.5*i) + ',' +
         //                         Math.floor(255-42.5*j) + ')';
         //         ctx.beginPath();
         //         ctx.arc(12.5+j*25,12.5+i*25,10,0,Math.PI*2,true);
@@ -298,7 +299,7 @@
         // // assign gradients to fill and stroke styles
         // ctx.fillStyle = lingrad;
         // ctx.strokeStyle = lingrad2;
-        
+
         // // draw shapes
         // ctx.fillRect(10,10,130,130);
         // ctx.strokeRect(50,50,50,50);
@@ -307,7 +308,7 @@
         // radgrad.addColorStop(0, '#A7D30C');
         // radgrad.addColorStop(0.9, '#019F62');
         // radgrad.addColorStop(1, 'rgba(1,159,98,0)');
-        
+
         // var radgrad2 = ctx.createRadialGradient(105,105,20,112,120,50);
         // radgrad2.addColorStop(0, '#FF5F98');
         // radgrad2.addColorStop(0.75, '#FF0188');
@@ -322,7 +323,7 @@
         // radgrad4.addColorStop(0, '#F4F201');
         // radgrad4.addColorStop(0.8, '#E4C700');
         // radgrad4.addColorStop(1, 'rgba(228,199,0,0)');
-        
+
         // // 画图形
         // ctx.fillStyle = radgrad4;
         // ctx.fillRect(0,0,150,150);
@@ -352,16 +353,149 @@
         // ctx.shadowOffsetY = 2;
         // ctx.shadowBlur = 2;
         // ctx.shadowColor = "rgba(0, 0, 0, 0.5)";
-        
+
         // ctx.font = "20px Times New Roman";
         // ctx.fillStyle = "Black";
         // ctx.fillText("Sample String", 5, 30);
 
         //填充
-        ctx.beginPath(); 
-        ctx.arc(50, 50, 30, 0, Math.PI*2, true);
-        ctx.arc(50, 50, 15, 0, Math.PI*2, true);
-        ctx.fill("evenodd");
+        // ctx.beginPath();
+        // ctx.arc(50, 50, 30, 0, Math.PI*2, true);
+        // ctx.arc(50, 50, 15, 0, Math.PI*2, true);
+        // ctx.fill("evenodd");
+
+        // ctx.font = "48px serif";
+        // ctx.fillStyle='#ff0000';
+        // ctx.fillText("Hello world", 10, 50);
+        // ctx.strokeStyle='#ff0000'
+        // ctx.strokeText("Hello world", 10, 150);
+        // var text = ctx.measureText("foo"); // TextMetrics object
+        // console.log(text.width); // 16;
+
+
+        //加载外源图片需走个异步或者window.onload
+        //crossorigin="anonymous"跨域问题解决
+        // var img=new Image();
+        // img.src='./totoro.jpg';
+        // img.setAttribute('id','test111');
+        // img.onload=function(e){
+        //     ctx.drawImage(document.querySelector('#local'),10,10)
+        // }
+
+        // window.onload=function(e){
+        //     ctx.drawImage(document.querySelector('#local'),10,10)
+        // }
+
+        //save()保存状态 restore()回复状态，//保存strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation 的值可能会很有用
+
+        // ctx.fillRect(0,0,150,150);   // 使用默认设置绘制一个矩形
+        // ctx.save();                  // 保存默认状态
+
+        // ctx.fillStyle = '#09F'       // 在原有配置基础上对颜色做改变
+        // ctx.fillRect(15,15,120,120); // 使用新的设置绘制一个矩形
+
+        // ctx.save();                  // 保存当前状态
+        // ctx.fillStyle = '#FFF'       // 再次改变颜色配置
+        // ctx.globalAlpha = 0.5;
+        // ctx.fillRect(30,30,90,90);   // 使用新的配置绘制一个矩形
+
+        // ctx.restore();               // 重新加载之前的颜色状态
+        // ctx.fillRect(45,45,60,60);   // 使用上一次的配置绘制一个矩形
+
+        // ctx.restore();               // 加载默认颜色配置
+        // ctx.fillRect(60,60,30,30);
+        //translate(x,y)
+        // for (var i = 0; i < 3; i++) {
+        //     for (var j = 0; j < 3; j++) {
+        //         ctx.save();
+        //         ctx.fillStyle = 'rgb(' + (51 * i) + ', ' + (255 - 51 * i) + ', 255)';
+        //         ctx.translate(10 + j * 50, 10 + i * 50);
+        //         ctx.fillRect(0, 0, 25, 25);
+        //         ctx.restore();
+        //     }
+        // }
+        // ctx.translate(75,75);
+        // for (var i=1;i<6;i++){ // Loop through rings (from inside to out)
+        //     // ctx.save();
+        //     ctx.fillStyle = 'rgb('+(38*i)+','+(255-51*i)+',255)';
+
+        //     for (var j=0;j<i*6;j++){ // draw individual dots
+        //         ctx.rotate(Math.PI*2/(i*6));
+        //         ctx.beginPath();
+        //         ctx.arc(0,i*12.5,5,0,Math.PI*2,true);
+        //         ctx.fill();
+        //     }
+
+        //     // ctx.restore();
+        // }
+        // ctx.strokeStyle = "#fc0";
+        // ctx.lineWidth = 1.5;
+        // ctx.fillRect(0,0,300,300);
+
+        // // Uniform scaling
+        // ctx.save()
+        // ctx.translate(50,50);
+        // drawSpirograph(ctx,22,6,5);  // no scaling
+
+        // ctx.translate(100,0);
+        // ctx.scale(0.75,0.75);
+        // drawSpirograph(ctx,22,6,5);
+
+        // ctx.translate(133.333,0);
+        // ctx.scale(0.75,0.75);
+        // drawSpirograph(ctx,22,6,5);
+        // ctx.restore();
+
+        // // Non-uniform scaling (y direction)
+        // ctx.strokeStyle = "#0cf";
+        // ctx.save()
+        // ctx.translate(50,150);
+        // ctx.scale(1,0.75);
+        // drawSpirograph(ctx,22,6,5);
+
+        // ctx.translate(100,0);
+        // ctx.scale(1,0.75);
+        // drawSpirograph(ctx,22,6,5);
+
+        // ctx.translate(100,0);
+        // ctx.scale(1,0.75);
+        // drawSpirograph(ctx,22,6,5);
+        // ctx.restore();
+
+        // // Non-uniform scaling (x direction)
+        // ctx.strokeStyle = "#cf0";
+        // ctx.save()
+        // ctx.translate(50,250);
+        // ctx.scale(0.75,1);
+        // drawSpirograph(ctx,22,6,5);
+
+        // ctx.translate(133.333,0);
+        // ctx.scale(0.75,1);
+        // drawSpirograph(ctx,22,6,5);
+
+        // ctx.translate(177.777,0);
+        // ctx.scale(0.75,1);
+        // drawSpirograph(ctx,22,6,5);
+        // ctx.restore();
+        var sin = Math.sin(Math.PI/6);
+        var cos = Math.cos(Math.PI/6);
+        ctx.beginPath();
+        ctx.moveTo(0,0);
+        ctx.lineTo(200,200);
+        ctx.stroke();
+        ctx.closePath();
+        ctx.translate(200, 200);
+        var c = 0;
+        for (var i=0; i <= 12; i++) {
+            c = Math.floor(255 / 12 * i);
+            ctx.fillStyle = "rgb(" + c + "," + c + "," + c + ")";
+            ctx.fillRect(0, 0, 100, 10);
+            ctx.transform(cos, sin, -sin, cos, 0, 0);
+        }
+
+        ctx.setTransform(-1, 0, 0, 1, 100, 100);
+        // ctx.fillStyle = "rgba(255, 128, 255, 0.5)";
+        // ctx.fillRect(0, 50, 100, 100);
     </script>
 </body>
 </html>
