@@ -12,7 +12,7 @@
 <body>
     <div>
         <!-- <canvas id="run" width="500" height="500">current stock price: $3.15 +0.15</canvas> -->
-        <canvas id="run" width="500" height="500">
+        <canvas id="run" width="600" height="600">
             <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=14112372,1735644923&fm=26&gp=0.jpg" width="150" height="150" alt=""/>
         </canvas>
         <img id="local" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=14112372,1735644923&fm=26&gp=0.jpg" alt="">
@@ -687,64 +687,128 @@
 
         // // window.requestAnimationFrame(clock);
         // clock();
-        var img = new Image();
+        // var img = new Image();
 
         // User Variables - customize these to change the image being scrolled, its
         // direction, and the speed.
 
-        img.src = 'https://mdn.mozillademos.org/files/4553/Capitan_Meadows,_Yosemite_National_Park.jpg';
-        var CanvasXSize = 800;
-        var CanvasYSize = 200;
-        var speed = 30; //lower is faster
-        var scale = 1.05;
-        var y = -4.5; //vertical offset
+        // img.src = 'https://mdn.mozillademos.org/files/4553/Capitan_Meadows,_Yosemite_National_Park.jpg';
+        // var CanvasXSize = 800;
+        // var CanvasYSize = 200;
+        // var speed = 30; //lower is faster
+        // var scale = 1.05;
+        // var y = -4.5; //vertical offset
 
-        // Main program
+        // // Main program
 
-        var dx = 0.75;
-        var imgW;
-        var imgH;
-        var x = 0;
-        var clearX;
-        var clearY;
-        var ctx;
+        // var dx = 0.75;
+        // var imgW;
+        // var imgH;
+        // var x = 0;
+        // var clearX;
+        // var clearY;
+        // var ctx;
 
-        img.onload = function() {
-            imgW = img.width*scale;
-            imgH = img.height*scale;
-            if (imgW > CanvasXSize) { x = CanvasXSize-imgW; } // image larger than canvas
-            if (imgW > CanvasXSize) { clearX = imgW; } // image larger than canvas
-            else { clearX = CanvasXSize; }
-            if (imgH > CanvasYSize) { clearY = imgH; } // image larger than canvas
-            else { clearY = CanvasYSize; }
-            //Get Canvas Element
-            // ctx = document.getElementById('canvas').getContext('2d');
-            //Set Refresh Rate
-            return setInterval(draw, speed);
+        // img.onload = function() {
+        //     imgW = img.width*scale;
+        //     imgH = img.height*scale;
+        //     if (imgW > CanvasXSize) { x = CanvasXSize-imgW; } // image larger than canvas
+        //     if (imgW > CanvasXSize) { clearX = imgW; } // image larger than canvas
+        //     else { clearX = CanvasXSize; }
+        //     if (imgH > CanvasYSize) { clearY = imgH; } // image larger than canvas
+        //     else { clearY = CanvasYSize; }
+        //     //Get Canvas Element
+        //     // ctx = document.getElementById('canvas').getContext('2d');
+        //     //Set Refresh Rate
+        //     return setInterval(draw, speed);
+        // }
+
+        // function draw() {
+        //     //Clear Canvas
+        //     ctx.clearRect(0,0,clearX,clearY);
+        //     //If image is <= Canvas Size
+        //     if (imgW <= CanvasXSize) {
+        //         //reset, start from beginning
+        //         if (x > (CanvasXSize)) { x = 0; }
+        //         //draw aditional image
+        //         if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-CanvasXSize+1,y,imgW,imgH); }
+        //     }
+        //     //If image is > Canvas Size
+        //     else {
+        //         //reset, start from beginning
+        //         if (x > (CanvasXSize)) { x = CanvasXSize-imgW; }
+        //         //draw aditional image
+        //         if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-imgW+1,y,imgW,imgH); }
+        //     }
+        //     //draw image
+        //     ctx.drawImage(img,x,y,imgW,imgH);
+        //     //amount to move
+        //     x += dx;
+        // }
+
+        //canvas高级，小球
+        var raf;
+        var running=false;
+        var ball={
+            x:100,
+            y:100,
+            vx:5,
+            vy:2,
+            radius:25,
+            color:'blue',
+            draw:function(){
+                ctx.beginPath();
+                ctx.arc(this.x,this.y,this.radius,0,Math.PI*2,true);
+                ctx.closePath();
+                ctx.fillStyle=this.color;
+                ctx.fill();
+            }
+        };
+        function clear() {
+            //拖尾效果
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.fillRect(0,0,canvas.width,canvas.height);
         }
-
         function draw() {
-            //Clear Canvas
-            ctx.clearRect(0,0,clearX,clearY);
-            //If image is <= Canvas Size
-            if (imgW <= CanvasXSize) {
-                //reset, start from beginning
-                if (x > (CanvasXSize)) { x = 0; }
-                //draw aditional image
-                if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-CanvasXSize+1,y,imgW,imgH); }
+            // ctx.clearRect(0,0, canvas.width, canvas.height);
+            clear();
+
+            ball.draw();
+
+            ball.x += ball.vx;
+            ball.y += ball.vy;
+            //加速度
+            // ball.vy *= .99;
+            // ball.vy += .25;
+            //边界
+            if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+                ball.vy = -ball.vy;
             }
-            //If image is > Canvas Size
-            else {
-                //reset, start from beginning
-                if (x > (CanvasXSize)) { x = CanvasXSize-imgW; }
-                //draw aditional image
-                if (x > (CanvasXSize-imgW)) { ctx.drawImage(img,x-imgW+1,y,imgW,imgH); }
+            if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+                ball.vx = -ball.vx;
             }
-            //draw image
-            ctx.drawImage(img,x,y,imgW,imgH);
-            //amount to move
-            x += dx;
+            raf = window.requestAnimationFrame(draw);
         }
+        canvas.addEventListener('mousemove',function(e){
+            // raf = window.requestAnimationFrame(draw);
+            if (!running) {
+                clear();
+                ball.x = e.clientX;
+                ball.y = e.clientY;
+                ball.draw();
+            }
+        });
+        canvas.addEventListener('mouseout', function(e){
+            window.cancelAnimationFrame(raf);
+            running = false;
+        });
+        canvas.addEventListener('click',function(e){
+            if (!running) {
+                raf = window.requestAnimationFrame(draw);
+                running = true;
+            }
+        });
+        ball.draw();
     </script>
 </body>
 </html>
