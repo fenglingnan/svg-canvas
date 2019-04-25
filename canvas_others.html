@@ -14,10 +14,57 @@
         <canvas id="app" width="600" height="600">
             <img src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=14112372,1735644923&fm=26&gp=0.jpg" width="150" height="150" alt=""/>
         </canvas>
+        <input type="checkbox" id="smoothbtn"/>
+        <canvas id="zoom"></canvas>
     </div>
     <script type="text/javascript">
-        var canvas=document.querySelector('#app');
-        var ctx=canvas.getContext('2d');
+        // var canvas=document.querySelector('#app');
+        // var ctx=canvas.getContext('2d');
+        //放大图像
+        var img = new Image();
+        img.src = 'https://mdn.mozillademos.org/files/5397/rhino.jpg';
+        img.onload = function() {
+            draw(this);
+        };
+
+        function draw(img) {
+            var canvas = document.getElementById('app');
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            img.style.display = 'none';
+            var zoomctx = document.getElementById('zoom').getContext('2d');
+
+            var smoothbtn = document.getElementById('smoothbtn');
+            var toggleSmoothing = function(event) {
+                zoomctx.imageSmoothingEnabled = this.checked;
+                zoomctx.mozImageSmoothingEnabled = this.checked;
+                zoomctx.webkitImageSmoothingEnabled = this.checked;
+                zoomctx.msImageSmoothingEnabled = this.checked;
+                console.log(this)
+            };
+            smoothbtn.addEventListener('change', toggleSmoothing);
+
+            var zoom = function(event) {
+                var x = event.layerX;
+                var y = event.layerY;
+                zoomctx.drawImage(canvas,
+                                Math.abs(x - 5),
+                                Math.abs(y - 5),
+                                10, 10,
+                                0, 0,
+                                200, 200);
+            };
+
+            canvas.addEventListener('mousemove', zoom);
+        }
+        let blob = new Blob([`
+        <h1>Hello, i'm a Blob</h1>
+        `],{type:"text/html"});
+
+        let iframe = document.createElement('iframe');
+        iframe.src = URL.createObjectURL(blob);
+        let body = document.querySelector('body');
+        body.appendChild(iframe);
     </script>
 </body>
 </html>
